@@ -2,22 +2,10 @@
 
 //Testing the API with a proxy
 
-
-
-//tying the API with the form 
-
-document.querySelector('#form').addEventListener('submit', function(event){
-    event.preventDefault(); 
-    let userinput = document.querySelector('#form-input').value; 
-    console.log(userinput); 
-    fetch (`https://api.allorigins.win/raw?url=https://tastedive.com/api/similar?q=${userinput}&type=music`).then(function(res){
+fetch ("https://api.allorigins.win/raw?url=https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction").then(function(res){
             return res.json();
         
         })
         .then(function(data){
             console.log(data);
         })
-
-    fetch ()
-
-});
