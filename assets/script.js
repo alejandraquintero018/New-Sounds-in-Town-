@@ -1,4 +1,4 @@
-
+var userContainer = document.getElementById('art');
 
 //Testing the API with a proxy
 
@@ -14,8 +14,26 @@ document.querySelector('#form').addEventListener('submit', function(event){
             return res.json();
         })
         .then(function(data){
-            console.log(data);
+
+            for( var i = 0; i < 5; i++){
+            console.log(data.Similar.Results[i].Name);
+            // var element = document.createElement('li');
+            document.querySelector('#art'+i).textContent=data.Similar.Results[i].Name;
+        
+            
+            
+             }
         })
+
+
+    // fetch ()
+
+});
+
+
+
+
+
     fetch ()
     getDates(userinput);
 });
@@ -34,4 +52,5 @@ function getDates(userinput) {
 
 //CLient ID 
 //Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy
+
 
