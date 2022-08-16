@@ -2,8 +2,6 @@
 
 //Testing the API with a proxy
 
-
-
 //tying the API with the form 
 
 document.querySelector('#form').addEventListener('submit', function(event){
@@ -26,7 +24,12 @@ function getDates(userinput) {
     }).then(function(data){
         console.log(data);
     })
-};
+}
+
+let events = data.value
+for (var i = 0; i = events.length; i++) {
+
+}
 
 // API KEY for Seat Geek
 // 6f3c33672e892fdaaf54cf553ce147687a9af04ed735671115da281bd83912e2
