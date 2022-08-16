@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
-
     <title>New Sounds In Town</title>
 </head>
 
@@ -20,12 +19,80 @@
         <h2>Search Your Favorite Artist Below! </h2>
     </header>
 
-    <div class="container">
-        <form class="searchBar" id="form">
-            <input type="text" id="form-input">
+    <div class="flex justify-center content-center w-screen" >
+        <form class="searchBar flex content-center justify-items-center" id="form">
+            <input type="text flex content-center" id="form-input">
             <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
         </form>
     </div>
+
+ <!--concert dates displayed-->
+
+ <div class="flex justify-around">
+
+    <div class="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+        <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+            Upcoming Shows
+        </h5>
+    </div>
+
+    <!--similar artists displayed-->
+
+    <div>
+
+        <div
+            class="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+                Similar Artist's
+            </h5>
+            <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Based on your search these are a few
+                Artists we recommend you check out.</p>
+            <ul class="my-4 space-y-3">
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 1</span>
+                        <span
+                            class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 5</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+
+    </div>
+
+</div>
+
     <script src="./assets/script.js"> </script>
 </body>
 
