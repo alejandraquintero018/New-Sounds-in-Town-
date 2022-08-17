@@ -1,5 +1,6 @@
 var userContainer = document.getElementById('art');
-var link = document.querySelector('.events');
+var link = document.querySelector('.url');
+var date = document.querySelector('.showdate');
 
 //Testing the API with a proxy
 
@@ -31,15 +32,24 @@ function getDates(userinput) {
     fetch(`https://api.seatgeek.com/2/events?q=${userinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
         return res.json();
     }).then(function (data) {
-        //console.log(data.events[0].url);
+        console.log(data.events);
+        let name = document.querySelector('.showname');
         //let events = data.value
         for (var i = 0; i < data.events.length; i++) {
             console.log(data.events[i].url);
             var getticket = data.events[i].url;
+            var getname = data.events[i].shortname;
+            var getDate = data.events[i].datetime_local;
             let ticketlink = document.createElement('a');
+            let artistName = document.createElement('h4');
+            ticketlink.setAttribute("href", getticket);
             ticketlink.textContent = getticket;
+            artistName.textContent = getname; 
             //ticketlink.setAttribute("value", getticket);
+            name.append(getname); 
+            date.append(getDate);
             link.append(ticketlink);
+            ticketlink.append(" ");
         }
 
 
