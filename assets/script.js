@@ -7,7 +7,7 @@ let name = document.querySelector('.showname');
 
 //tying the API with the form 
 
-document.querySelector('#form').addEventListener('submit', function (event) {
+document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     let userinput = document.querySelector('#form-input').value;
     console.log(userinput);
