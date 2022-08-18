@@ -28,8 +28,9 @@ document.querySelector('#form').addEventListener('submit', function (event) {
     getDates(userinput);
 });
 
-function getDates(userinput) {
-    fetch(`https://api.seatgeek.com/2/events?q=${userinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
+let cityinput = document.querySelector()
+function getDates(userinput, cityinput) {
+    fetch(`https://api.seatgeek.com/2/events?q=${userinput}.city=${cityinput}&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ`).then(function (res) {
         return res.json();
     }).then(function (data) {
         console.log(data.events);
@@ -38,16 +39,16 @@ function getDates(userinput) {
         for (var i = 0; i < data.events.length; i++) {
             console.log(data.events[i].url);
             
-            
             var getticket = data.events[i].url;
             let ticketlink = document.createElement('a');
             ticketlink.setAttribute("href", getticket);
             ticketlink.textContent = getticket;
             link.append(ticketlink); 
 
+
             var getname = data.events[i].shortname;
             let artistName = document.createElement('li');
-           // artistName.setAttribute("h4", getname);
+            artistName.setAttribute("h4", getname);
             artistName.textContent = getname;
             name.append(artistName); 
 
