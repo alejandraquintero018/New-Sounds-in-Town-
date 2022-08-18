@@ -1,6 +1,7 @@
 var userContainer = document.getElementById('art');
 var link = document.querySelector('.url');
 var date = document.querySelector('.showdate');
+let name = document.querySelector('.showname'); 
 
 //Testing the API with a proxy
 
@@ -21,7 +22,6 @@ document.querySelector('#form').addEventListener('submit', function (event) {
                 document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
 
 
-
             }
         })
     // fetch();
@@ -37,19 +37,32 @@ function getDates(userinput) {
         //let events = data.value
         for (var i = 0; i < data.events.length; i++) {
             console.log(data.events[i].url);
+            
+            
             var getticket = data.events[i].url;
-            var getname = data.events[i].shortname;
-            var getDate = data.events[i].datetime_local;
             let ticketlink = document.createElement('a');
-            let artistName = document.createElement('h4');
             ticketlink.setAttribute("href", getticket);
             ticketlink.textContent = getticket;
-            artistName.textContent = getname; 
+            link.append(ticketlink); 
+
+            var getname = data.events[i].shortname;
+            let artistName = document.createElement('li');
+           // artistName.setAttribute("h4", getname);
+            artistName.textContent = getname;
+            name.append(artistName); 
+
+
+            //var getDate = data.events[i].datetime_local;
+            //let showdate = document.createElement("div");
+            //artistName.textContent = getDate;
+            //showdate.append(getDate);
+    
+            //artistName = setAttribute("h4", getname); 
             //ticketlink.setAttribute("value", getticket);
-            name.append(getname); 
-            date.append(getDate);
-            link.append(ticketlink);
-            ticketlink.append(" ");
+        
+            
+
+            //ticketlink.append();
         }
 
 
