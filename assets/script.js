@@ -26,6 +26,7 @@ document.querySelector('#form').addEventListener('submit', function (event) {
         })
     // fetch();
     getDates(userinput);
+   
 });
 
 function getDates(userinput) {
@@ -68,6 +69,10 @@ function getDates(userinput) {
 
     })
 }
+
+
+
+
 
 
 // API KEY for Seat Geek
