@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="assets/style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>New Sounds In Town</title>
 </head>
 
@@ -25,8 +27,6 @@
         </form>
     </div>-->
 
-
-
     <form class="text-center">
         <div class="mb-6 mt-10 ">
             <label  class=" block mb-2 text-3xl font-semibold text-white ">Artist Name</label>
@@ -34,118 +34,296 @@
         </div>
         <div class="mb-6 mt-10 ">
             <label class=" block mb-2 text-3xl font-semibold text-white dark:text-gray-300">Preferred Location</label>
-            <input class="w-1/3 bg-gray-50 bg-opacity-30 border border-gray-300 h-20 text-white  text-2xl font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <input
+                class="w-1/3 bg-gray-50 bg-opacity-30 border border-gray-300 h-20 text-white  text-2xl font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </div>
-            <button type="submit" class="hover:ring-4  hover:ring-white  w-1/4 text-white bg-white bg-opacity-30 hover:bg-opacity-60 hover:bg-white focus:ring-4  focus:ring-white font-medium rounded-lg text-sm  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-    
-        </form>
+        <button type="submit"
+            class="hover:ring-4  hover:ring-white  w-1/4 text-white bg-white bg-opacity-30 hover:bg-opacity-60 hover:bg-white focus:ring-4  focus:ring-white font-medium rounded-lg text-sm  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 
-
-    <div class="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-        <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-            Upcoming Shows
-        </h5>
-        <div class="showname showdate url"></div>
-        <!--<div class="s"></div>
-        <div class="url"></div> 
+    </form>
 
 
 
 
-    concert dates displayed-->
 
 
-    <div class="flex justify-around  mb-30">
 
-        <div class="flex justify-around">
+    <!--concert dates displayed-->
 
-            <div
-                class="p-4 w-full max-w-sm bg-white bg-opacity-30 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-                <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                    Upcoming Shows
-                </h5>
-                <div class="showname"></div>
-                <div class="showdate"></div>
-                <div class="url"></div>
-    
+    <!--carousel-->
+
+   
+<div class="carousel-container">
+        <div class="flex justify-center    h-full py-24 mt-20 sm:py-8 px-4 bg-white bg-opacity-30 rounded-lg border shadow-md">
+            <div class="w-full flex items-center justify-center">
+                <button class="scroll" aria-label="slide backward"
+                    class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+                    id="prev">
+                    <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                    <div id="slider"
+                        class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 1</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area"
+                                class="object-cover object-center w-full" />
+                            <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                                <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">
+                                    Catalog 2</h2>
+                                <div class="flex h-full items-end pb-6">
+                                    <h3
+                                        class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                        Minimal Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="scroll" aria-label="slide forward"
+                    class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                    id="next">
+                    <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
             </div>
-    
         </div>
+
+    </div>
+
+
+
+    
+
+
+    <!--<div class="flex justify-around mt-20">
 
         <div
-            class="mb-30 p-4 w-full max-w-sm bg-white bg-opacity-30 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+            class="p-4 w-full max-w-sm bg-white bg-opacity-30 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+                Upcoming Shows
+            </h5>
+            <div class="showname"></div>
+            <div class="showdate"></div>
+            <div class="url"></div>
 
-            <div>
-                <div
-                    class="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+        </div>
 
-                    <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                        Upcoming Shows
-                    </h5>
-                </div>
+    </div>-->
 
-                <!--similar artists displayed-->
 
-                <div>
 
-                    <div
-                        class="mb-30 p-4 w-full max-w-sm bg-white bg-opacity-30 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-                        <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                            Similar Artist's
-                        </h5>
-                        <p class="text-sm font-normal text-gray-900 dark:text-gray-400">Based on your search these are a
-                            few
-                            Artists we recommend you check out.</p>
-                        <ul class="my-4 space-y-3">
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+    <!--similar artists displayed-->
 
-                                    <span id="art0"class="flex-1 ml-3 whitespace-nowrap">Artist 1</span>
-                                    <span
-                                        class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
 
-                                    <span id="art1" class="flex-1 ml-3 whitespace-nowrap">Artist 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+    <div class="flex justify-center mt-20">
+        <div
+            class=" mb-30 p-4 w-full max-w-sm bg-white bg-opacity-30 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+                Similar Artist's
+            </h5>
+            <p class="text-sm font-normal text-gray-900 dark:text-gray-400">Based on your search these are a few Artists
+                we
+                recommend you check out.</p>
+            <ul class="my-4 space-y-3">
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
 
-                                    <span id="art2" class="flex-1 ml-3 whitespace-nowrap">Artist 3</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-
-                                    <span id="art3" class="flex-1 ml-3 whitespace-nowrap">Artist 4</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-
-                                    <span id="art4" class="flex-1 ml-3 whitespace-nowrap">Artist 5</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                   
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 1</span>
                         
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
 
-                </div>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
 
-            </div>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
 
-<script src="assets/script.js"></script>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+
+                        <span class="flex-1 ml-3 whitespace-nowrap">Artist 5</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="assets/script.js"></script>
 </body>
 
 </html>
