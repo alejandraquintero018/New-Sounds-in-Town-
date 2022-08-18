@@ -7,7 +7,9 @@ let name = document.querySelector('.showname');
 
 //tying the API with the form 
 
-document.querySelector('form').addEventListener('submit', function (event) {
+document.querySelector('form').addEventListener('submit', searchArtist);
+
+function searchArtist(event){
     event.preventDefault();
     let userinput = document.querySelector('#form-input').value;
     console.log(userinput);
@@ -19,14 +21,20 @@ document.querySelector('form').addEventListener('submit', function (event) {
             for (var i = 0; i < 5; i++) {
                 console.log(data.Similar.Results[i].Name);
                 // var element = document.createElement('li');
+                let artists = document.querySelector('#art' + i);
                 document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
+                let text = artists.textContent;
+                console.log(text);
 
 
             }
         })
     // fetch();
     getDates(userinput);
-});
+
+}
+
+
 
 function getDates(userinput) {
     fetch(`https://api.seatgeek.com/2/events?q=${userinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
