@@ -36,8 +36,9 @@
         </div>
         <div class="mb-6 mt-10 ">
             <label class=" block mb-2 text-3xl font-semibold text-white dark:text-gray-300">Preferred Location</label>
-            <input
-                class="w-1/3 bg-gray-50 bg-opacity-30 border border-gray-300 h-20 text-white  text-2xl font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <input id ="city-search" class="w-1/3 bg-gray-50 bg-opacity-30 border border-gray-300 h-20 text-white  text-2xl font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
         </div>
         <button type="submit"
             class="hover:ring-4  hover:ring-white  w-1/4 text-white bg-white bg-opacity-30 hover:bg-opacity-60 hover:bg-white focus:ring-4  focus:ring-white font-medium rounded-lg text-sm  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
@@ -53,6 +54,18 @@
     <!--concert dates displayed-->
 
     <!--carousel-->
+
+
+            <div
+                class="p-4 w-full max-w-sm bg-white bg-opacity-30 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+                    Upcoming Shows
+                </h5>
+                <div class="events"></div>
+    
+            </div>
+    
+        </div>
 
 
     <div class="carousel-container">
@@ -280,7 +293,10 @@
 
 
 
-    <script src="assets/script.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.4/dayjs.min.js"></script>
+<script src="assets/script.js"></script>
 </body>
 
 </html>
