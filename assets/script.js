@@ -1,7 +1,6 @@
 var userContainer = document.getElementById('art');
-var link = document.querySelector('.url');
-var date = document.querySelector('.showdate');
-let name = document.querySelector('.showname'); 
+let eventsEl = document.querySelector('.events'); 
+
 
 //Testing the API with a proxy
 
@@ -13,6 +12,8 @@ function searchArtist(event){
     event.preventDefault();
     let userinput = document.querySelector('#form-input').value;
     console.log(userinput);
+    let cityinput = document.querySelector('#city-search').value;
+    console.log(cityinput); 
     fetch(`https://api.allorigins.win/raw?url=https://tastedive.com/api/similar?q=${userinput}&type=music`).then(function (res) {
         return res.json();
     })
@@ -30,14 +31,23 @@ function searchArtist(event){
             }
         })
     // fetch();
+<<<<<<< HEAD
     getDates(userinput);
 
 }
 
 
+=======
 
-function getDates(userinput) {
-    fetch(`https://api.seatgeek.com/2/events?q=${userinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
+    getDates(userinput, cityinput);
+
+});
+>>>>>>> 2cc214e7588b535e12d1ec8bf98d00e385e8bbd8
+
+
+
+function getDates(userinput, cityinput) {
+    fetch(`https://api.seatgeek.com/2/events?q=${userinput}&venue.city=${cityinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
         return res.json();
     }).then(function (data) {
         console.log(data.events);
@@ -45,25 +55,41 @@ function getDates(userinput) {
         //let events = data.value
         for (var i = 0; i < data.events.length; i++) {
             console.log(data.events[i].url);
-            
-            
+     
+            var popEvents = document.createElement('div');
+            //eventsEl.append(popEvents); 
+            //popEvents.setAttribute("class", card); 
+
             var getticket = data.events[i].url;
             let ticketlink = document.createElement('a');
             ticketlink.setAttribute("href", getticket);
-            ticketlink.textContent = getticket;
-            link.append(ticketlink); 
+            ticketlink.setAttribute("target", "_blank")
+            popEvents.appendChild(ticketlink); 
 
-            var getname = data.events[i].shortname;
-            let artistName = document.createElement('li');
-           // artistName.setAttribute("h4", getname);
+
+            var getname = data.events[i].short_title;
+            console.log(getname);
+            let artistName = document.createElement('h1');
+    
             artistName.textContent = getname;
-            name.append(artistName); 
+            popEvents.appendChild(artistName); 
+
+            let getimage = data.events[i].performers[0].image;
+            let makeimage = document.createElement('img'); 
+            makeimage.setAttribute('src', getimage); 
+            makeimage.setAttribute
+            ticketlink.appendChild(makeimage); 
+            console.log(getimage);
+
+            var getDate = data.events[i].datetime_local;
+            let showdate = document.createElement("h3");
+            showdate.textContent = getDate;
+            popEvents.appendChild(showdate);
+
+            dayjs(getDate).format('DD/MM/YYY');
 
 
-            //var getDate = data.events[i].datetime_local;
-            //let showdate = document.createElement("div");
-            //artistName.textContent = getDate;
-            //showdate.append(getDate);
+            eventsEl.append(popEvents); 
     
             //artistName = setAttribute("h4", getname); 
             //ticketlink.setAttribute("value", getticket);
@@ -76,6 +102,24 @@ function getDates(userinput) {
 
     })
 }
+
+let defaultTransform = 0;
+function goNext() {
+    defaultTransform = defaultTransform - 398;
+    var slider = document.getElementById("slider");
+    if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
+    slider.style.transform = "translateX(" + defaultTransform + "px)";
+}
+next.addEventListener("click", goNext);
+function goPrev() {
+    var slider = document.getElementById("slider");
+    if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+    else defaultTransform = defaultTransform + 398;
+    slider.style.transform = "translateX(" + defaultTransform + "px)";
+}
+prev.addEventListener("click", goPrev);
+
+
 
 
 // API KEY for Seat Geek
