@@ -59,18 +59,25 @@ function getDates(userinput, cityinput) {
             let artistName = document.createElement('h1');
     
             artistName.textContent = getname;
+            artistName.setAttribute('class', 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+            //.classList.add('mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+
             popEvents.appendChild(artistName); 
 
             let getimage = data.events[i].performers[0].image;
             let makeimage = document.createElement('img'); 
             makeimage.setAttribute('src', getimage); 
             makeimage.setAttribute
+
+            img.classList.add('rounded-t-lg')
+
             ticketlink.appendChild(makeimage); 
             console.log(getimage);
 
             var getDate = data.events[i].datetime_local;
             let showdate = document.createElement("h3");
             showdate.textContent = getDate;
+            h3.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400')
             popEvents.appendChild(showdate);
 
             dayjs(getDate).format('DD/MM/YYY');
