@@ -72,7 +72,6 @@ function getDates(userinput, cityinput) {
             popEvents.appendChild(showdate);
 
             dayjs(getDate).format('DD/MM/YYY');
-            
 
 
             eventsEl.append(popEvents); 
