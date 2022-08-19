@@ -6,9 +6,7 @@ let eventsEl = document.querySelector('.events');
 
 //tying the API with the form 
 
-document.querySelector('form').addEventListener('submit', searchArtist);
-
-function searchArtist(event){
+document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     let userinput = document.querySelector('#form-input').value;
     console.log(userinput);
@@ -22,27 +20,17 @@ function searchArtist(event){
             for (var i = 0; i < 5; i++) {
                 console.log(data.Similar.Results[i].Name);
                 // var element = document.createElement('li');
-                let artists = document.querySelector('#art' + i);
                 document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
-                let text = artists.textContent;
-                console.log(text);
 
 
             }
         })
     // fetch();
-<<<<<<< HEAD
-    getDates(userinput);
-
-}
-
-
-=======
 
     getDates(userinput, cityinput);
 
 });
->>>>>>> 2cc214e7588b535e12d1ec8bf98d00e385e8bbd8
+
 
 
 
@@ -72,18 +60,25 @@ function getDates(userinput, cityinput) {
             let artistName = document.createElement('h1');
     
             artistName.textContent = getname;
+            artistName.setAttribute('class', 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+            //.classList.add('mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+
             popEvents.appendChild(artistName); 
 
             let getimage = data.events[i].performers[0].image;
             let makeimage = document.createElement('img'); 
             makeimage.setAttribute('src', getimage); 
             makeimage.setAttribute
+
+            img.classList.add('rounded-t-lg')
+
             ticketlink.appendChild(makeimage); 
             console.log(getimage);
 
             var getDate = data.events[i].datetime_local;
             let showdate = document.createElement("h3");
             showdate.textContent = getDate;
+            h3.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400')
             popEvents.appendChild(showdate);
 
             dayjs(getDate).format('DD/MM/YYY');
