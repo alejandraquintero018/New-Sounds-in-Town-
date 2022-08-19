@@ -50,7 +50,7 @@ function getDates(userinput, cityinput) {
             var getticket = data.events[i].url;
             let ticketlink = document.createElement('a');
             ticketlink.setAttribute("href", getticket);
-            ticketlink.setAttribute("target", "_blank")
+            ticketlink.setAttribute("target", "_blank");
             popEvents.appendChild(ticketlink); 
 
 
@@ -79,8 +79,10 @@ function getDates(userinput, cityinput) {
             showdate.textContent = getDate;
             h3.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400')
             popEvents.appendChild(showdate);
-
-            dayjs(getDate).format('DD/MM/YYY');
+            
+            let formatdate = JSON.stringify(getDate); 
+            let test = dayjs(formatdate).format('dddd, MMMM D');
+            console.log(test); 
 
 
             eventsEl.append(popEvents); 
