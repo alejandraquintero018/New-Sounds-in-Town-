@@ -21,6 +21,8 @@ document.querySelector('form').addEventListener('submit', function (event) {
                 console.log(data.Similar.Results[i].Name);
                 // var element = document.createElement('li');
                 document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
+                document.querySelector('#art' + i).setAttribute('data-artist',data.Similar.Results[i].Name);
+                document.querySelector('#art' + i).classList.add('similar');
 
 
             }
@@ -33,10 +35,26 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
 
 
+document.getElementById('simArt').addEventListener('click',function(event){
+    if(!event.target.matches('.similar')){
+        return //if it does not match
+
+    }
+    else {
+        var btn = event.target;
+        var artist = btn.getAttribute('data-artist');
+        getDates(artist,"");
+
+    }
+})
+
+
 function getDates(userinput, cityinput) {
     fetch(`https://api.seatgeek.com/2/events?q=${userinput}&venue.city=${cityinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
         return res.json();
     }).then(function (data) {
+        console.log(cityinput);
+        
         console.log(data.events);
         let name = document.querySelector('.showname');
         //let events = data.value
@@ -50,7 +68,7 @@ function getDates(userinput, cityinput) {
             var getticket = data.events[i].url;
             let ticketlink = document.createElement('a');
             ticketlink.setAttribute("href", getticket);
-            ticketlink.setAttribute("target", "_blank")
+            ticketlink.setAttribute("target", "_blank");
             popEvents.appendChild(ticketlink); 
 
 
@@ -69,7 +87,7 @@ function getDates(userinput, cityinput) {
             makeimage.setAttribute('src', getimage); 
             makeimage.setAttribute
 
-            img.classList.add('rounded-t-lg')
+            makeimage.classList.add('rounded-t-lg')
 
             ticketlink.appendChild(makeimage); 
             console.log(getimage);
@@ -77,10 +95,12 @@ function getDates(userinput, cityinput) {
             var getDate = data.events[i].datetime_local;
             let showdate = document.createElement("h3");
             showdate.textContent = getDate;
-            h3.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400')
+            // showdate.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400') edit later
             popEvents.appendChild(showdate);
-
-            dayjs(getDate).format('DD/MM/YYY');
+            
+            let formatdate = JSON.stringify(getDate); 
+            let test = dayjs(formatdate).format('dddd, MMMM D');
+            console.log(test); 
 
 
             eventsEl.append(popEvents); 
