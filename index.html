@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<script src="https://cdn.tailwindcss.com"></script> -->
 
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -47,7 +51,6 @@
     <!--carousel-->
 
 
-
     <div class="carousel-container">
         <div
             class="flex justify-center    h-full py-24 mt-20 sm:py-8 px-4 bg-white bg-opacity-30 rounded-lg border shadow-md">
@@ -63,33 +66,14 @@
                     </svg>
                 </button>
                 <!--Slider Cards-->
-                <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                <div class="w-full h-full  overflow-x-hidden overflow-y-hidden">
                     <div id="slider"
-                        class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
-
-                        <div
-                            class="events flex flex-shrink-0 relative w-full sm:w-auto     max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <a>
-
-                                <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt=""> -->
-
-                                <div class="p-5     ">
-
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        </h5>
-
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                    </p>
-
-                                </div>
-                            </a>
-                        </div>
-
-                       
+                        class="h-full w-1/2 events flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
 
 
                     </div>
                 </div>
+
                 <!--Slide Button-->
                 <button class="scroll" aria-label="slide forward"
                     class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
@@ -102,9 +86,85 @@
                 </button>
             </div>
         </div>
-
     </div>
-
+<!-- 
+    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+        <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner relative w-full overflow-hidden">
+          <div class="carousel-item active relative float-left w-full">
+            <img
+              src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
+              class="block w-full"
+              alt="..."
+            />
+            <div class="carousel-caption hidden md:block absolute text-center">
+              <h5 class="text-xl">First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item relative float-left w-full">
+            <img
+              src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
+              class="block w-full"
+              alt="..."
+            />
+            <div class="carousel-caption hidden md:block absolute text-center">
+              <h5 class="text-xl">Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item relative float-left w-full">
+            <img
+              src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
+              class="block w-full"
+              alt="..."
+            />
+            <div class="carousel-caption hidden md:block absolute text-center">
+              <h5 class="text-xl">Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
 
     <!--Display Similar Artists-->
 
@@ -114,7 +174,8 @@
             <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
                 Similar Artist's
             </h5>
-            <p class="text-sm font-normal text-gray-900 dark:text-gray-400">Based on your search these are a few Artists
+            <p class="text-sm font-normal text-gray-900 dark:text-gray-400">Based on your search these are a few
+                Artists
                 we
                 recommend you check out.</p>
             <ul class="my-4 space-y-3">
@@ -158,17 +219,11 @@
 
         </div>
 
-
     </div>
-
-  
-
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.4/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 

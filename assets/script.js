@@ -1,122 +1,110 @@
 var userContainer = document.getElementById('art');
-let eventsEl = document.querySelector('.events'); 
-
-
+let eventsEl = document.querySelector('.events');
+let card = document.querySelector('#slider');
 //Testing the API with a proxy
-
-//tying the API with the form 
-
+//tying the API with the form
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     let userinput = document.querySelector('#form-input').value;
     console.log(userinput);
     let cityinput = document.querySelector('#city-search').value;
-    console.log(cityinput); 
+    console.log(cityinput);
     fetch(`https://api.allorigins.win/raw?url=https://tastedive.com/api/similar?q=${userinput}&type=music`).then(function (res) {
         return res.json();
     })
         .then(function (data) {
-
             for (var i = 0; i < 5; i++) {
                 console.log(data.Similar.Results[i].Name);
                 // var element = document.createElement('li');
                 document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
                 document.querySelector('#art' + i).setAttribute('data-artist',data.Similar.Results[i].Name);
                 document.querySelector('#art' + i).classList.add('similar');
-
-
             }
         })
     // fetch();
-
     getDates(userinput, cityinput);
-
 });
-
-
-
 document.getElementById('simArt').addEventListener('click',function(event){
     if(!event.target.matches('.similar')){
         return //if it does not match
-
     }
     else {
         var btn = event.target;
         var artist = btn.getAttribute('data-artist');
         getDates(artist,"");
-
     }
 })
-
-
 function getDates(userinput, cityinput) {
     fetch(`https://api.seatgeek.com/2/events?q=${userinput}&venue.city=${cityinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
         return res.json();
     }).then(function (data) {
         console.log(cityinput);
-        
         console.log(data.events);
-        let name = document.querySelector('.showname');
+        //let name = document.querySelector('.showname');
         //let events = data.value
         for (var i = 0; i < data.events.length; i++) {
-            console.log(data.events[i].url);
-     
+            // let card = [data.events.length];
+            //card.forEach('div', i => {
+            //console.log(element);
             var popEvents = document.createElement('div');
-            //eventsEl.append(popEvents); 
-            //popEvents.setAttribute("class", card); 
-
+            popEvents.setAttribute("class", "object-fit  my-5 flex justify-center  relative rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700");
+            popEvents.setAttribute("class", "carousel-item float-left rounded-lg ")
+            eventsEl.append(popEvents);
+            //popEvents.setAttribute("class", card);
+            //for getting and appending the ticketlink and appending it to the image to make the image a link
             var getticket = data.events[i].url;
             let ticketlink = document.createElement('a');
             ticketlink.setAttribute("href", getticket);
+            ticketlink.setAttribute("class", "w-1/2");
             ticketlink.setAttribute("target", "_blank");
-            popEvents.appendChild(ticketlink); 
-
-
+            
+            popEvents.append(ticketlink);
+            //getting and appending the image
+            let getimage = data.events[i].performers[0].image;
+            let makeimage = document.createElement('img');
+            makeimage.setAttribute('src', getimage);
+            makeimage.setAttribute('class', "rounded-lg")
+            ticketlink.appendChild(makeimage);
+            //getting and appending the concert title
             var getname = data.events[i].short_title;
             console.log(getname);
-            let artistName = document.createElement('h1');
-    
+            let artistName = document.createElement('h5');
             artistName.textContent = getname;
-            artistName.setAttribute('class', 'mb-2 bg-white text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
-            //.classList.add('mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
-
-            popEvents.appendChild(artistName); 
-
-            let getimage = data.events[i].performers[0].image;
-            let makeimage = document.createElement('img'); 
-            makeimage.setAttribute('src', getimage); 
-            makeimage.setAttribute
-
-            makeimage.classList.add('rounded-t-lg')
-
-            ticketlink.appendChild(makeimage); 
-            console.log(getimage);
-
+            artistName.setAttribute('class', 'text-center px-3 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white');
+            ticketlink.appendChild(artistName);
+            //getting the date, formatting and appending it to the
             var getDate = data.events[i].datetime_local;
-            let showdate = document.createElement("h3");
-            showdate.textContent = getDate;
-            // showdate.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400') edit later
-            popEvents.appendChild(showdate);
-            
-            let formatdate = JSON.stringify(getDate); 
-            let test = dayjs(formatdate).format('dddd, MMMM D');
-            console.log(test); 
-
-
-            eventsEl.append(popEvents); 
-    
-            //artistName = setAttribute("h4", getname); 
-            //ticketlink.setAttribute("value", getticket);
-        
-            
-
-            //ticketlink.append();
-        }
-
-
-    })
+            let showdate = document.createElement("p");
+            showdate.setAttribute("class", "my-3 px-3 font-normal text-gray-700 dark:text-gray-400");
+            let test = dayjs(getDate).format('dddd, MMMM D');
+            showdate.textContent = test;
+            ticketlink.appendChild(showdate);
+            //for getting the venue and appending it to the card
+            let getvenue = data.events[i].venue.name;
+            let makevenue = document.createElement('p');
+            makevenue.textContent = getvenue;
+            makevenue.setAttribute('class', 'mb-3 font-normal px-3 text-gray-700 dark:text-gray-400')
+            ticketlink.appendChild(makevenue);
+            //getting and appending the price
+            let getprice = data.events[i].stats.lowest_price;
+            let makeprice = document.createElement('p');
+            makeprice.textContent = "From $" + getprice;
+            ticketlink.appendChild(makeprice);
+        };
+        //artistName = setAttribute("h4", getname);
+        //ticketlink.setAttribute("value", getticket);
+        //getDate.JSON
+        //let formatdate = dayjs(getDate).format('dddd, MMMM D');
+        //console.log(getDate);
+        //console.log(formatdate);
+        //ticketlink.append();
+    });
 }
-
+if (!navigator.geolocation) {
+    console.error(`Your browser doesn't support Geolocation`);
+  } else {
+    console.log("OK!")
+  }
 let defaultTransform = 0;
 function goNext() {
     defaultTransform = defaultTransform - 398;
@@ -132,15 +120,7 @@ function goPrev() {
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
-
-
-
-
 // API KEY for Seat Geek
 // 6f3c33672e892fdaaf54cf553ce147687a9af04ed735671115da281bd83912e2
-
-
-//CLient ID 
+//CLient ID
 //Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy
-
-

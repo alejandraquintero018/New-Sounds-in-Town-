@@ -1,3 +1,9 @@
+
+:root {
+font-size: 16px;
+
+}
+
 body {
     width: 100%;
     min-height: 100vh;
@@ -66,10 +72,17 @@ h1, h2 {
 .carousel-container {
     width: 66%;
     margin: 0 auto;
+    height: 300px;
 }
 
 .scroll {
     background-color: white;
     margin: 0 auto; 
     padding: 3px; 
+}
+
+.carousel-item {
+    width: 50%;
+    background-color: white;
+
 }
