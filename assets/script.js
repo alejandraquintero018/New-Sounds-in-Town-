@@ -3,6 +3,7 @@ let eventsEl = document.querySelector('.events');
 let card = document.querySelector('#slider');
 let carouselEl = document.querySelector('.carousel-container');
 let artistsEl = document.querySelector('#simArt');
+let noartistsEl = document.getElementById('noartists');
 
 
 //Testing the API with a proxy
@@ -112,19 +113,12 @@ function getDates(userinput, cityinput) {
 
         if(!data.events.length) {
             carouselEl.setAttribute('class', 'hidden');
-            document.getElementById('noartists').textContent = "There are no events by that artists, check out if any of the recommended artists based on your music taste"
+            noartistsEl.setAttribute('class', 'text-center text-white mt-10px text-xl')
+            document.getElementById('noartists').textContent = "There are no events by that artists! Check out one of the recommended artists below based on your music taste"
         }
 
     });
 
-}
-
-if (!navigator.geolocation) {
-    console.error(`Your browser doesn't support Geolocation`);
-  } else {
-    console.log("OK!")
-  }
-  
 
 let defaultTransform = 0;
 function goNext() {
@@ -141,7 +135,7 @@ function goPrev() {
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
-
+}
 
 // API KEY for Seat Geek
 // 6f3c33672e892fdaaf54cf553ce147687a9af04ed735671115da281bd83912e2
