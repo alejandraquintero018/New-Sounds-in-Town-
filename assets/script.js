@@ -1,10 +1,18 @@
 var userContainer = document.getElementById('art');
 let eventsEl = document.querySelector('.events');
 let card = document.querySelector('#slider');
+let carouselEl = document.querySelector('.carousel-container');
+let artistsEl = document.querySelector('#simArt');
+
+
 //Testing the API with a proxy
-//tying the API with the form
+
+//tying the API with the form 
+
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
+    carouselEl.setAttribute('class', 'displaycontents');
+    artistsEl.setAttribute('class', 'displaycontents flex justify-center mt-20');
     let userinput = document.querySelector('#form-input').value;
     console.log(userinput);
     let cityinput = document.querySelector('#city-search').value;
@@ -13,6 +21,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
         return res.json();
     })
         .then(function (data) {
+
             for (var i = 0; i < 5; i++) {
                 console.log(data.Similar.Results[i].Name);
                 // var element = document.createElement('li');
@@ -22,56 +31,62 @@ document.querySelector('form').addEventListener('submit', function (event) {
             }
         })
     // fetch();
+
     getDates(userinput, cityinput);
+
 });
+
 document.getElementById('simArt').addEventListener('click',function(event){
     if(!event.target.matches('.similar')){
         return //if it does not match
+
     }
     else {
         var btn = event.target;
         var artist = btn.getAttribute('data-artist');
         getDates(artist,"");
+
     }
 })
+
+
 function getDates(userinput, cityinput) {
     fetch(`https://api.seatgeek.com/2/events?q=${userinput}&venue.city=${cityinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
         return res.json();
     }).then(function (data) {
         console.log(cityinput);
+        
         console.log(data.events);
-        //let name = document.querySelector('.showname');
-        //let events = data.value
+
         for (var i = 0; i < data.events.length; i++) {
-            // let card = [data.events.length];
-            //card.forEach('div', i => {
-            //console.log(element);
+
             var popEvents = document.createElement('div');
-            popEvents.setAttribute("class", "object-fit  my-5 flex justify-center  relative rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700");
-            popEvents.setAttribute("class", "carousel-item float-left rounded-lg ")
+            // popEvents.setAttribute("class", "my-5 justify-center mx-auto relative w-full sm:w- max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700");
+            popEvents.setAttribute("class", "carousel-item relative float-left w-full")
             eventsEl.append(popEvents);
-            //popEvents.setAttribute("class", card);
+
             //for getting and appending the ticketlink and appending it to the image to make the image a link
             var getticket = data.events[i].url;
             let ticketlink = document.createElement('a');
             ticketlink.setAttribute("href", getticket);
-            ticketlink.setAttribute("class", "w-1/2");
             ticketlink.setAttribute("target", "_blank");
-            
             popEvents.append(ticketlink);
+
             //getting and appending the image
             let getimage = data.events[i].performers[0].image;
             let makeimage = document.createElement('img');
             makeimage.setAttribute('src', getimage);
-            makeimage.setAttribute('class', "rounded-lg")
+            makeimage.setAttribute('class', "rounded-lg object-cover object-center w-full")
             ticketlink.appendChild(makeimage);
-            //getting and appending the concert title
+
+            //getting and appending the concert title 
             var getname = data.events[i].short_title;
             console.log(getname);
             let artistName = document.createElement('h5');
             artistName.textContent = getname;
             artistName.setAttribute('class', 'text-center px-3 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white');
             ticketlink.appendChild(artistName);
+
             //getting the date, formatting and appending it to the
             var getDate = data.events[i].datetime_local;
             let showdate = document.createElement("p");
@@ -79,32 +94,37 @@ function getDates(userinput, cityinput) {
             let test = dayjs(getDate).format('dddd, MMMM D');
             showdate.textContent = test;
             ticketlink.appendChild(showdate);
-            //for getting the venue and appending it to the card
+
+            //for getting the venue and appending it to the card 
             let getvenue = data.events[i].venue.name;
             let makevenue = document.createElement('p');
             makevenue.textContent = getvenue;
             makevenue.setAttribute('class', 'mb-3 font-normal px-3 text-gray-700 dark:text-gray-400')
             ticketlink.appendChild(makevenue);
-            //getting and appending the price
+
+            //getting and appending the price 
             let getprice = data.events[i].stats.lowest_price;
             let makeprice = document.createElement('p');
             makeprice.textContent = "From $" + getprice;
             ticketlink.appendChild(makeprice);
         };
-        //artistName = setAttribute("h4", getname);
-        //ticketlink.setAttribute("value", getticket);
-        //getDate.JSON
-        //let formatdate = dayjs(getDate).format('dddd, MMMM D');
-        //console.log(getDate);
-        //console.log(formatdate);
-        //ticketlink.append();
+
+        if(!data.events.length) {
+            carouselEl.setAttribute('class', 'hidden');
+            document.getElementById('noartists').textContent = "There are no events by that artists, check out if any of the recommended artists based on your music taste"
+        }
+
     });
+
 }
+
 if (!navigator.geolocation) {
     console.error(`Your browser doesn't support Geolocation`);
   } else {
     console.log("OK!")
   }
+  
+
 let defaultTransform = 0;
 function goNext() {
     defaultTransform = defaultTransform - 398;
@@ -120,7 +140,11 @@ function goPrev() {
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
+
+
 // API KEY for Seat Geek
 // 6f3c33672e892fdaaf54cf553ce147687a9af04ed735671115da281bd83912e2
-//CLient ID
+
+
+//CLient ID 
 //Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy

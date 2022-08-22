@@ -1,8 +1,10 @@
-
-:root {
-font-size: 16px;
-
+.displaycontents{
+    display: contents;
 }
+
+/* #noartists{
+    color:azure;
+} */
 
 body {
     width: 100%;
@@ -72,17 +74,10 @@ h1, h2 {
 .carousel-container {
     width: 66%;
     margin: 0 auto;
-    height: 300px;
 }
 
 .scroll {
     background-color: white;
     margin: 0 auto; 
     padding: 3px; 
-}
-
-.carousel-item {
-    width: 50%;
-    background-color: white;
-
 }
