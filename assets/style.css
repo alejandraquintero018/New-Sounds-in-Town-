@@ -1,4 +1,10 @@
+.displaycontents{
+    display: contents;
+}
 
+/* #noartists{
+    color:azure;
+} */
 
 body {
     width: 100%;
