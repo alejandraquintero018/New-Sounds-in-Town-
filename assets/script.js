@@ -21,7 +21,15 @@ document.querySelector('form').addEventListener('submit', function (event) {
             for (var i = 0; i < 5; i++) {
                 console.log(data.Similar.Results[i].Name);
                 // var element = document.createElement('li');
+<<<<<<< HEAD
                document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
+=======
+                document.querySelector('#art' + i).textContent = data.Similar.Results[i].Name;
+                document.querySelector('#art' + i).setAttribute('data-artist',data.Similar.Results[i].Name);
+                document.querySelector('#art' + i).classList.add('similar');
+
+
+>>>>>>> e14271385e455073c203062ce3df925ef23a7bea
             }
         })
     // fetch();
@@ -30,10 +38,31 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
 });
 
+<<<<<<< HEAD
+=======
+
+
+document.getElementById('simArt').addEventListener('click',function(event){
+    if(!event.target.matches('.similar')){
+        return //if it does not match
+
+    }
+    else {
+        var btn = event.target;
+        var artist = btn.getAttribute('data-artist');
+        getDates(artist,"");
+
+    }
+})
+
+
+>>>>>>> e14271385e455073c203062ce3df925ef23a7bea
 function getDates(userinput, cityinput) {
     fetch(`https://api.seatgeek.com/2/events?q=${userinput}&venue.city=${cityinput}&client_id=Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy`).then(function (res) {
         return res.json();
     }).then(function (data) {
+        console.log(cityinput);
+        
         console.log(data.events);
         //let name = document.querySelector('.showname');
         //let events = data.value
@@ -68,11 +97,29 @@ function getDates(userinput, cityinput) {
             console.log(getname);
             let artistName = document.createElement('h5');
             artistName.textContent = getname;
+<<<<<<< HEAD
             artistName.setAttribute('class', 'text-center px-3 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white');
             ticketlink.appendChild(artistName);
+=======
+            artistName.setAttribute('class', 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+            //.classList.add('mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+
+            popEvents.appendChild(artistName); 
+
+            let getimage = data.events[i].performers[0].image;
+            let makeimage = document.createElement('img'); 
+            makeimage.setAttribute('src', getimage); 
+            makeimage.setAttribute
+
+            makeimage.classList.add('rounded-t-lg')
+
+            ticketlink.appendChild(makeimage); 
+            console.log(getimage);
+>>>>>>> e14271385e455073c203062ce3df925ef23a7bea
 
             //getting the date, formatting and appending it to the
             var getDate = data.events[i].datetime_local;
+<<<<<<< HEAD
             let showdate = document.createElement("p");
             showdate.setAttribute("class", "my-3 px-3 font-normal text-gray-700 dark:text-gray-400");
             let test = dayjs(getDate).format('dddd, MMMM D');
@@ -103,6 +150,24 @@ function getDates(userinput, cityinput) {
         //console.log(formatdate);
         //ticketlink.append();
     });
+=======
+            let showdate = document.createElement("h3");
+            showdate.textContent = getDate;
+            // showdate.classList.add('mb-3 font-normal text-gray-700 dark:text-gray-400') edit later
+            popEvents.appendChild(showdate);
+            
+            let formatdate = JSON.stringify(getDate); 
+            let test = dayjs(formatdate).format('dddd, MMMM D');
+            console.log(test); 
+
+
+            eventsEl.append(popEvents); 
+    
+            //artistName = setAttribute("h4", getname); 
+            //ticketlink.setAttribute("value", getticket);
+        
+            
+>>>>>>> e14271385e455073c203062ce3df925ef23a7bea
 
 }
 
