@@ -19,7 +19,7 @@ header {
 }
 
 h1 {
-    /*font-size: ;*/
+    font-size: 16px;
 }
 
 h2 {
@@ -74,10 +74,17 @@ h1, h2 {
 .carousel-container {
     width: 66%;
     margin: 0 auto;
+    margin-left: 100px;
+
 }
 
 .scroll {
     background-color: white;
     margin: 0 auto; 
     padding: 3px; 
+}
+
+.scroll{
+    display: flex;
+    justify-content: space-between;
 }
