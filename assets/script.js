@@ -77,7 +77,7 @@ function getDates(userinput, cityinput) {
             let artistName = document.createElement('h1');
     
             artistName.textContent = getname;
-            artistName.setAttribute('class', 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
+            artistName.setAttribute('class', 'mb-2 bg-white text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
             //.classList.add('mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white')
 
             popEvents.appendChild(artistName); 
