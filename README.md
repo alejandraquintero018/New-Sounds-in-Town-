@@ -21,6 +21,8 @@ https://alejandraquintero018.github.io/New-Sounds-in-Town-/
  
 This is how our webpage looks before the user enters an artist that they are interested in. 
    md![alt text](assets/images/Screenshot1.png)
+   md![alt text](assets/images/NSIT-screenshot-2.png)
+   md![alt text](assets/images/NSIT-screenshot3.png)
 
 
 ## Credits
