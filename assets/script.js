@@ -12,6 +12,7 @@ let noartistsEl = document.getElementById('noartists');
 
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
+    
     carouselEl.setAttribute('class', 'displaycontents');
     artistsEl.setAttribute('class', 'displaycontents flex justify-center mt-20');
     let userinput = document.querySelector('#form-input').value;
@@ -63,7 +64,7 @@ function getDates(userinput, cityinput) {
 
             var popEvents = document.createElement('div');
             // popEvents.setAttribute("class", "my-5 justify-center mx-auto relative w-full sm:w- max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700");
-            popEvents.setAttribute("class", "carousel-item relative float-left w-full")
+            popEvents.setAttribute("class", " carousel-item relative p-5px bg-white mx-3 h-96 w-40 rounded-lg")
             eventsEl.append(popEvents);
 
             //for getting and appending the ticketlink and appending it to the image to make the image a link
@@ -77,7 +78,7 @@ function getDates(userinput, cityinput) {
             let getimage = data.events[i].performers[0].image;
             let makeimage = document.createElement('img');
             makeimage.setAttribute('src', getimage);
-            makeimage.setAttribute('class', "rounded-lg object-cover object-center w-full")
+            makeimage.setAttribute('class', "rounded-lg")
             ticketlink.appendChild(makeimage);
 
             //getting and appending the concert title 
@@ -134,7 +135,7 @@ function goPrev() {
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
-
+}
 
 // API KEY for Seat Geek
 // 6f3c33672e892fdaaf54cf553ce147687a9af04ed735671115da281bd83912e2
@@ -142,5 +143,3 @@ prev.addEventListener("click", goPrev);
 
 //CLient ID 
 //Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy
-
-
