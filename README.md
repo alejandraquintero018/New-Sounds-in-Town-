@@ -3,13 +3,16 @@
 ## Description
 
 - What was your motivation?
-    Our motivation for this project was to collaborate on a project that would allow the 
+    Our motivation for this project was to collaborate on a project that would exceed a project that we could do indiviually. This project encompassed everything that we learned so far in class an utilize a framework that no one had before used. 
+
 - Why did you build this project? 
-    We built this project to utilize more capabilities of github, learn how to work on different branches and merge into main. 
+    We built this project to utilize more capabilities of github, learn how to work on different branches and merge into main. To also learn how to utilize multiple server API's. 
+
 - What problem does it solve?
-    The project solves the problem of being able to find an event for an artist in a specific city that the user is intrested in. If the user sees that there are no events in that city from what they searched, the webpage also gives the user a list of artists that they might be intrested in. The user can click on one of the recommended artists and that will search for events for that the recommended artist. The user will then be able to find an event that they would be intrested in no matter the time of 
+    The project solves the problem of being able to find an event for an artist in a specific city that the user is intrested in. They can also see If the user sees that there are no events in that city from what they searched, the webpage also gives the user a list of artists that they might be intrested in. The user can click on one of the recommended artists and that will search for events for that the recommended artist. The user will then be able to find an event that they would be intrested in the case that thier initial artist is not playing in thier city of interest. 
+
 - What did you learn?
-    We learned how to divide tasks among different team members and use different branches, we learned how to deal with conflicts in github. 
+    We learned how to divide tasks among different team members and use different branches, we learned how to deal with conflicts in github. We also learned how to impliment multiple server API's in order to create a new webpage that provide the user with a functional expierence. 
 
 ## Installation
 

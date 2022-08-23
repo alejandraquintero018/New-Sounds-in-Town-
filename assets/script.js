@@ -117,6 +117,7 @@ function getDates(userinput, cityinput) {
         }
 
     });
+}
 
 
 let defaultTransform = 0;
@@ -135,12 +136,9 @@ function goPrev() {
 }
 prev.addEventListener("click", goPrev);
 
-
 // API KEY for Seat Geek
 // 6f3c33672e892fdaaf54cf553ce147687a9af04ed735671115da281bd83912e2
 
 
 //CLient ID 
 //Mjg0ODA1NTR8MTY2MDYxNjUyOS42NDkyNzcy
-
-
