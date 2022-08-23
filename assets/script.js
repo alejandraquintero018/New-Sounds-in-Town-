@@ -137,7 +137,7 @@ function goPrev() {
 }
 prev.addEventListener("click", goPrev);
 
-}
+
 
 
 // API KEY for Seat Geek
