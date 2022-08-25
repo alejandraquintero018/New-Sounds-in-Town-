@@ -60,7 +60,20 @@ function getDates(userinput, cityinput) {
         
         console.log(data.events);
 
+        if(!data.events.length) {
+            carouselEl.setAttribute('class', 'hidden');
+            noartistsEl.setAttribute('class', ' text-center text-white mt-10px pt-10 text-xl')
+            noartistsEl.classList.remove("hidden")
+            document.getElementById('noartists').textContent = `There are no events by ${userinput}! Check out one of the recommended artists below based on your music taste`
+            return;
+        }
+
+            carouselEl.classList.remove("hidden")
+            noartistsEl.classList.add("hidden")
+
         for (var i = 0; i < data.events.length; i++) {
+
+        
 
             var popEvents = document.createElement('div');
             // popEvents.setAttribute("class", "my-5 justify-center mx-auto relative w-full sm:w- max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700");
@@ -111,11 +124,7 @@ function getDates(userinput, cityinput) {
             ticketlink.appendChild(makeprice);
         };
 
-        if(!data.events.length) {
-            carouselEl.setAttribute('class', 'hidden');
-            noartistsEl.setAttribute('class', 'text-center text-white mt-10px text-xl')
-            document.getElementById('noartists').textContent = "There are no events by that artists! Check out one of the recommended artists below based on your music taste"
-        }
+       
 
     });
 }
